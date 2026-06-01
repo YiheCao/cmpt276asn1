@@ -1,14 +1,33 @@
 var temp = "";
 var wind = "";
 var rain = "";
+var error = "";
+
+const buttons = document.querySelectorAll(".cities");
+
+
+buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+        getWeather(button.id);
+    });
+});
+
+
+
 async function getWeather(city) {
+    document.getElementById("cname").textContent = city;
+    document.getElementById("temp").textContent = "Loading...";
+    document.getElementById("wind").textContent = "Loading...";
+    document.getElementById("rain").textContent = "Loading...";
+
     try {
-        const geoRes = await fetch('https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1');
+        const geoRes = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`);
         const geoData = await geoRes.json();
 
 
         if (!geoData.results || geoData.results.length == 0) {
             console.log("City not found");
+            error = "City not found"
             return;
         }
 
@@ -21,14 +40,22 @@ async function getWeather(city) {
         const weatherData = await weatherRes.json();
         const current = weatherData.current;
 
-
+        temp = current.temperature_2m + "°C";
         console.log("Temperature:", current.temperature_2m, "°C");
+        wind = current.wind_speed_10m + "km/h";
         console.log("Wind:", current.wind_speed_10m, "km/h");
+        rain = current.precipitation + "mm";
         console.log("Rain:", current.precipitation, "mm");
+
+        document.getElementById("temp").textContent = temp;
+        document.getElementById("wind").textContent = wind;
+        document.getElementById("rain").textContent = rain;
 
     }
     catch (error) {
         console.log("Error:", error);
+        error = "Something went wrong";
     }
 
 }
+
