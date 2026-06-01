@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My webpage</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
 </head>
 <body>
     <header>
@@ -15,43 +16,41 @@
 
         </h1>
         <section class="sec1">
-            section 1 text
-        </section>
-        <section class="sec2">
-            section 2 text
+            Type in a city name or click on one of the top 10 cities of Canada
         </section>
         <form action="/submit">
             <fieldset>
                 <legend>View City</legend>
                 City: <input name="cname" type="text">
                 <input type="submit" value="SEND">
+                <div name="errorMsg" id="error"> placeholder </div>
             </fieldset>
         </form>
         <table>
-            <tr><th>City Name</th></tr>
-            <tr><th>Temperature</th></tr>
-            <tr><th>Wind</th></tr>
-            <tr><th>Rain</th></tr>
+            <tr><th>City Name</th><th><div class="outputBox" name="cityName" id="cname"></div></th></tr>
+            <tr><th>Temperature</th><th><div class="outputBox" name="cityTemp" id="temp"></div></th></tr>
+            <tr><th>Wind</th><th><div class="outputBox" name="cityWind" id="wind"></div></th></tr>
+            <tr><th>Rain</th><th><div class="outputBox" name="cityRain" id="rain"></div></th></tr>
         </table>
         <table>
             <fieldset>
                 <legend>Top 10 cities in Canada according to me</legend>
-                <input type="submit" value="City1">
-                <input type="submit" value="City2">
-                <input type="submit" value="City3">
-                <input type="submit" value="City4">
-                <input type="submit" value="City5">
-                <input type="submit" value="City6">
-                <input type="submit" value="City7">
-                <input type="submit" value="City8">
-                <input type="submit" value="City9">
-                <input type="submit" value="City10">
+                <input type="submit" value="Vancouver">
+                <input type="submit" value="Toronto">
+                <input type="submit" value="Montreal">
+                <input type="submit" value="Calgary">
+                <input type="submit" value="Ottawa">
+                <input type="submit" value="Edmonton">
+                <input type="submit" value="Winnipeg">
+                <input type="submit" value="North Vancouver">
+                <input type="submit" value="Surrey">
+                <input type="submit" value="Burnaby">
             </fieldset>
         </table>
 
     </main>
     <footer>
-        Copyright Yi He Cao 2026
+        Copyright Yi He Cao 2026 student number 301663106
     </footer>
 </body>
 </html>
