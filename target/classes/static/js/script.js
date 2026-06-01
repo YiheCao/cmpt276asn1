@@ -1,6 +1,16 @@
 var temp = "";
 var wind = "";
 var rain = "";
+
+const viewCity = document.getElementById("cityInButton");
+
+viewCity.addEventListener("click", function () {
+    const cityName = document.getElementById("cityIn").value;
+    getWeather(cityName);
+});
+
+
+
 async function getWeather(city) {
     try {
         const geoRes = await fetch('https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1');
@@ -9,6 +19,7 @@ async function getWeather(city) {
 
         if (!geoData.results || geoData.results.length == 0) {
             console.log("City not found");
+            document.getElementById("error").textContent = "City not found";
             return;
         }
 
@@ -28,6 +39,7 @@ async function getWeather(city) {
 
     }
     catch (error) {
+        document.getElementById("error").textContent = "Something went wrong";
         console.log("Error:", error);
     }
 
