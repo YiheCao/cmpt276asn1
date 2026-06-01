@@ -1,13 +1,21 @@
 var temp = "";
 var wind = "";
 var rain = "";
-
-const viewCity = document.getElementById("cityInButton");
-
-viewCity.addEventListener("click", function () {
-    const cityName = document.getElementById("cityIn").value;
-    getWeather(cityName);
 var error = "";
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const button = document.getElementById("cityButton");
+    button.addEventListener("click", function () {
+        const cityInput = document.getElementById("cityIn");
+        getWeather(cityInput.value);
+    });
+});
+
+
+
+
 
 const buttons = document.querySelectorAll(".cities");
 
@@ -61,7 +69,7 @@ async function getWeather(city) {
     catch (error) {
         document.getElementById("error").textContent = "Something went wrong";
         console.log("Error:", error);
-        error = "Something went wrong";
+        document.getElementById("error").textContent = "Something went wrong";
     }
 
 }

@@ -21,9 +21,14 @@
         <form action="/submit">
             <fieldset>
                 <legend>View City</legend>
-                City: <input type="text" id="cityIn" placeholder="Enter city">
-                <button id="cityInButton">Search</button>
-                <div name="errorMsg" id="error"> placeholder </div>
+   
+                <label for="cityIn">City:</label>
+                <input type="text" id="cityIn" placeholder="Enter city">
+
+                <button id="cityButton" type="button">Search</button>
+
+                <div id="error"></div>
+
             </fieldset>
         </form>
         <table>
