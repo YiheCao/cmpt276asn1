@@ -33,6 +33,8 @@ async function getWeather(city) {
     document.getElementById("temp").textContent = "Loading...";
     document.getElementById("wind").textContent = "Loading...";
     document.getElementById("rain").textContent = "Loading...";
+    document.getElementById("error").textContent = "";
+
 
     try {
         const geoRes = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`);
